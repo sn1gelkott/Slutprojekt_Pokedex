@@ -320,9 +320,9 @@ h1 {
 /* Defines the Pokédex grid*/
 .pokedex {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /*Minimum */
+  gap: 20px; /* Horizontal gap between the cards*/
+  padding: 10px;
   max-height: 70vh;
   overflow-y: auto;
 }
