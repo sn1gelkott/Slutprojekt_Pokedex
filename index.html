@@ -1,39 +1,50 @@
 <!doctype html>
-<html class="no-js" lang="">
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Pokédex</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-
-  <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
 
-  <!-- Add your site or application content here -->
-  <a>
-    <img class= "logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pokémon_logo.svg/960px-International_Pokémon_logo.svg.png?20250519141241" alt="PokemonLogo">
-  </a> <!--Pokémon logo with alt-text + class to reference in CSS-->
+<!-- Pokémon Logo -->
+<a>
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pokémon_logo.svg/960px-International_Pokémon_logo.svg.png" alt="Pokemon Logo">
+</a>
 
-  <h1>Pokédex</h1>
+<h1>Pokédex</h1>
 
-  <!--Added the defer attribute for good measure to ensure HTML-elements load before running JS -->
-  <script defer src="js/app.js"></script>
+<!-- Controls -->
+<div class="controls">
 
+  <!-- Search Bar -->
+  <input type="text" id="search" placeholder="Search Pokémon..." />
+
+  <!-- Filter -->
+  <select id="filter">
+    <option value="all">All Pokémon</option>
+    <option value="legendary">Legendary Only</option>
+  </select>
+
+  <!-- Generation Dropdown -->
+  <div class="dropdown">
+    <button class="dropbtn">Generations</button>
+    <div class="dropdown-content">
+      <a href="#" data-gen="all">All (1-493)</a>
+      <a href="#" data-gen="1">Generation 1 (1-151)</a>
+      <a href="#" data-gen="2">Generation 2 (152-251)</a>
+      <a href="#" data-gen="3">Generation 3 (252-386)</a>
+      <a href="#" data-gen="4">Generation 4 (387-493)</a>
+    </div>
+  </div>
+</div>
+
+<!-- Pokémon Card Grid -->
+<div id="pokedex" class="pokedex"></div>
+
+<script defer src="js/app.js"></script>
+<!--Added the defer attribute for good measure to ensure HTML-elements load before running JS -->
 </body>
-
 </html>
