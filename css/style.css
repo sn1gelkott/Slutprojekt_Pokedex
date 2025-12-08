@@ -355,6 +355,8 @@ h1 {
   font-size: 0.8rem;
 }
 
+
+
 /* Simplified type coloring */
 .type-fire { background: #f08030; }
 .type-water { background: #6890f0; }
@@ -373,3 +375,4 @@ h1 {
 .type-dark { background: #705848; }
 .type-steel { background: #b8b8d0; }
 .type-fairy { background: #ee99ac; }
+.type-normal { background: #aaaaaa; }
