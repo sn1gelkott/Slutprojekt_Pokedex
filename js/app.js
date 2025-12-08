@@ -1,23 +1,26 @@
 const pokedexContainer = document.getElementById("pokedex");
 const filterSelect = document.getElementById("filter");
-const searchInput = document.getElementById("search");
+const searchInput = document.getElementById("search"); // All of these define a js variable that reference HTML-elements
 
 let allPokemon = [];        // Pokémon loaded for the current generation(s)
 let legendaryPokemon = new Set();
 let fullyLoadedPokemon = {}; // Cache to avoid re-fetching Pokémon
 
-/* --- Generation ranges (including ALL) --- */
+/* --- Defines the generation ranges for each button corresponding to the Pokémon generation--- */
 const GEN_RANGES = {
-  all: [1, 493],
+  all: [1, 493], /* All pokémon 1-493.*/
   1: [1, 151],
   2: [152, 251],
   3: [252, 386],
   4: [387, 493]
 };
+/* Each number on the left-hand side is the generation of Pokémon and the range of Pokémon that fit into each category*/
+
+// Please note that when fetched from the API each number corresponds to each Pokémon.
+// This is also accurate to the number in the actual Pokédex in the games.
 
 
-
-/* --- Load legendary list --- */
+/* --- Load legendary list; lists pokémon under the category "legendary"--- */
 async function loadLegendaryList() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=2000");
   const data = await response.json();
