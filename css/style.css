@@ -324,28 +324,30 @@ h1 {
   overflow-y: auto;
 }
 
-/* Pokémon card */
+/* Styling of the Pokémon card and the duration of the hover-animation */
 .pokemon-card {
   background: white;
   padding: 15px;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
+  transition: transform 1s; /* duration of hover-animation */
 }
 
 .pokemon-card:hover {
   transform: scale(1.05);
-}
+} /* Defines hover-animation; in this case the cards are scaled up by 5%*/
 
 .pokemon-card img {
   width: 120px;
 }
 
-/* Type chip styling */
+/* Defines the placement of the type chips in the cards*/
 .types {
   margin-top: 5px;
+  margin-bottom: 5px;
 }
 
+/* Defines the styling of the type chips themselves*/
 .type {
   display: inline-block;
   padding: 3px 8px;
@@ -357,7 +359,7 @@ h1 {
 
 
 
-/* Simplified type coloring */
+/* Defines the colours of the type-chips */
 .type-fire { background: #f08030; }
 .type-water { background: #6890f0; }
 .type-grass { background: #78c850; }
