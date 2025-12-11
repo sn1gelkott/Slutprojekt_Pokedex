@@ -295,7 +295,7 @@ body {
 .search-container {
   display: flex;
   padding-left: 5px;
-  width: 30%;
+  width: 20rem; /*Responsivity while still maintaining full visibility*/
   background-color: white;
   border-radius: 25px;
 }
