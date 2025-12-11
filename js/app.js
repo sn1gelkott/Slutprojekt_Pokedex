@@ -2,7 +2,7 @@ const pokedexContainer = document.getElementById("pokedex");
 const filterSelect = document.getElementById("filter");
 const searchInput = document.getElementById("search"); // All of these define a js variable that reference HTML-elements
 
-let allPokemon = [];        // Pokémon loaded for the current generation(s)
+let allPokemon = [];        // Pokémon loaded for the current generation(s); in this case first-gen Pokémon are loaded first
 let legendaryPokemon = new Set();
 let fullyLoadedPokemon = {}; // Cache to avoid re-fetching Pokémon
 
@@ -33,7 +33,7 @@ async function loadLegendaryList() {
   }
 }
 
-/* --- Load Pokémon for a given range (cached to prevent unnecessary network calls) --- */
+/* Load Pokémon for a given range, the ranges are defined in "GEN_RANGE" (cached to prevent unnecessary network calls) */
 async function loadPokemonRange(start, end) {
   const requests = [];
 
@@ -56,13 +56,13 @@ async function loadPokemonRange(start, end) {
   applyFilters();
 }
 
-/* --- Display Pokémon Cards --- */
+/* Display Pokémon Cards */
 function displayPokemon(list) {
-  pokedexContainer.innerHTML = "";
+  pokedexContainer.innerHTML = ""; //This function adds the fetched data create visible html-component
 
   list.forEach(pokemon => {
     const card = document.createElement("div");
-    card.classList.add("pokemon-card");
+    card.classList.add("pokemon-card"); //A div-element is created and named "pokemon-card"
 
     const types = pokemon.types
       .map(t => `<span class="type type-${t.type.name}">${t.type.name}</span>`)
@@ -79,15 +79,17 @@ function displayPokemon(list) {
   });
 }
 
-/* --- Apply search, legendary filter, etc. --- */
+/* Apply search, legendary filter, etc. */
 function applyFilters() {
-  let filtered = [...allPokemon];
+  let filtered = [...allPokemon]; //The variable "filtered" is defined for all loaded Pokémon
 
-  // Search filter
+  // Search filter using string-terms
   const term = searchInput.value.toLowerCase().trim();
+  /* Defines the term as an input and changes it to lowercase. This is to match it with the data from the endpoint as it is written in lowercase.
+  The trim function also gets rid of whitespaces, making it possible to get a search-result even with spaces in the search query. */
   if (term) {
     filtered = filtered.filter(p => p.name.toLowerCase().includes(term));
-  }
+  }  /* Boolean, if the term = true (meaning there is a search term at all) then it will check if the term matches the fetched data "name" */
 
   // Legendary filter
   if (filterSelect.value === "legendary") {
