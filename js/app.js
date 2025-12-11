@@ -3,7 +3,7 @@ const filterSelect = document.getElementById("filter");
 const searchInput = document.getElementById("search"); // All of these define a js variable that reference HTML-elements
 
 let allPokemon = [];        // Currently loaded Pokémon, in this case first-gen Pokémon are loaded first upon running
-let legendaryPokemon = new Set();
+let legendaryPokemon = new Set(); //Creates a new category for legendary Pokémon which will be used later in row 24
 let fullyLoadedPokemon = {}; // Cache to avoid re-fetching Pokémon
 
 /* --- Defines the generation ranges for each button corresponding to the Pokémon generation--- */
@@ -105,19 +105,19 @@ filterSelect.addEventListener("change", applyFilters); // When an option is chan
 
 
 /* Defines the behaviour of the dropdown-menu */
-document.querySelectorAll(".dropdown-content a").forEach(btn => {
-  btn.addEventListener("click", (event) => {
-    event.preventDefault(); // prevent scrolling to top
+document.querySelectorAll(".dropdown-content a").forEach(btn => { //For each of the returned options in the dropdown-menu the following can be done:
+  btn.addEventListener("click", (event) => { // When each button is clicked
+    event.preventDefault(); // Prevents the page from scrolling to the top when selecting an option
 
-    const gen = btn.dataset.gen;
-    const [start, end] = GEN_RANGES[gen];
+    const gen = btn.dataset.gen; //The variable gen references each "data-gen" in the HTML for each button
+    const [start, end] = GEN_RANGES[gen]; //The ranges for "gen" are arrays taken from the predefined GEN_RANGES
 
-    loadPokemonRange(start, end);
+    loadPokemonRange(start, end); //This calls on the function on 37
   });
 });
 
-/* --- INIT --- */
+/* INIT; starting point */
 (async function init() {
-  await loadLegendaryList();
-  loadPokemonRange(1, 151); // Default: Gen 1
+  await loadLegendaryList(); //Legendaries are loaded first otherwise they will not be displayed in the separate category
+  loadPokemonRange(1, 151); // The default loading range is Pokémon from generation 1; meaning they are the first to be displayed when opening the app
 })();
