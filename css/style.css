@@ -260,17 +260,16 @@ body {
 }
 
 .header-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
+  display: flex; /*Makes the item within the box responsive*/
+  justify-content: center; /*Aligns item in the center*/
+  margin-bottom: 2%;
 }
 
-#header-text{
-  font-family: "Courier New"; font-size: 1.5em;
-  margin: auto;
-  border-radius: 20%;
-  width: fit-content; height: fit-content;
-  padding: 10px;
+#header-textblock{
+  font-family: "Courier New"; font-size: xx-large;
+  border-radius: 30%;
+  border: 1px solid black;
+  padding: 2%;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6);
   background-color: #618f4e;
 }
@@ -325,9 +324,16 @@ body {
   color: black;
 }
 
-/* Defines the function of the dropdown menu for different generations */
+/* Defines the what happens when you hover over the dropdown-button; in this case it displays content */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/*When you hover over the options they change colour*/
+.dropdown-content a:hover {
+  background: #ffcb05;
+  transition-duration: 0.2s;
+  overflow: hidden;
 }
 
 /* Defines the Pokédex grid*/
