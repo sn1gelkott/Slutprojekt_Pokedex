@@ -58,24 +58,24 @@ async function loadPokemonRange(start, end) {
 
 /* Function for displaying Pokémon cards */
 function displayPokemon(list) { //This function takes the fetched data and creates a visible html-component
-  pokedexContainer.innerHTML = ""; 
+  pokedexContainer.innerHTML = ""; //This "empties" the container, preventing already loaded Pokémon from being displayed upon using different filters
 
   list.forEach(pokemon => { //Loop that performs this action for every element (Pokémon) on the list
     const card = document.createElement("div");
     card.classList.add("pokemon-card"); //A div-element is created and named "pokemon-card"
 
-    const types = pokemon.types
-      .map(t => `<span class="type type-${t.type.name}">${t.type.name}</span>`)
-      .join("");
+    const types = pokemon.types //The Pokémon types are defined as a string
+      .map(t => `<span class="type type-${t.type.name}">${t.type.name}</span>`) //Creates a new array containing all Pokémon types
+      .join(""); //The strings are joined with a separator if there are Pokémon with multiple types
 
     card.innerHTML = `
       <h3>#${pokemon.id} ${pokemon.name.toUpperCase()}</h3>
       <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
       <div class="types">${types}</div>
-    `; /* This defines the different attributes fetched from the API which will then be applied to the 'empty' HTML-elements.
+    `; /* This defines the different attributes fetched from the API as an element named "card", which will then be applied to placeholder HTML-elements.
     In this case the ID, the name and the Pokémon type.*/
 
-    pokedexContainer.appendChild(card); //This applies all the fetched data to the 'empty' cards.
+    pokedexContainer.appendChild(card); //This applies all the fetched data to the 'empty' cards as visible elements
   });
 }
 
