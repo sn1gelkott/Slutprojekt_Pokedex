@@ -99,9 +99,9 @@ function applyFilters() {
   displayPokemon(filtered);
 } //This function is the same as before but instead displays the resulting "filtered" Pokémon for both instances (legendary or search term)
 
-/* --- Event Listeners --- */
-searchInput.addEventListener("input", applyFilters);
-filterSelect.addEventListener("change", applyFilters);
+/* Event Listeners related to the two filter-systems */
+searchInput.addEventListener("input", applyFilters); // When a search term is written in the search input, filters are applied
+filterSelect.addEventListener("change", applyFilters); // When an option is changes in the filter (legendary or all Pokémon), the filter is applied accordingly
 
 
 /* --- Generation dropdown clicks --- */
