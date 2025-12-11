@@ -290,6 +290,7 @@ body {
 .search-container {
   display: flex;
   gap: 4px;
+  width: 30%;
 }
 .pokeball-container {
   display: flex;
@@ -300,11 +301,9 @@ body {
   }
 
   #search {
-  display: block;
     border-radius: 8px;
     padding: 16px;
-    text-align: left;
-  width: 95%;
+    width: 95%;
 }
 #filter {
   padding: 10px;
@@ -314,8 +313,8 @@ body {
 
 /* Styling of the dropdown menu */
 .dropdown {
+  justify-content: center;
   position: relative;
-  height: auto;
   display: inline-block; /*Inline-block so the blocks don't end up bigger than necessary*/
 }
 
