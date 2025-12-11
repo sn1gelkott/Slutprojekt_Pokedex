@@ -295,7 +295,6 @@ body {
 .search-container {
   display: flex;
   padding-left: 5px;
-  gap: 1px;
   width: 30%;
   background-color: white;
   border-radius: 25px;
@@ -316,10 +315,18 @@ body {
   #search {
     padding: 16px;
     width: 95%;
-    border: none; /*Invisible border*/
+    font-size: medium;
+    border: none; /*No visible border*/
     background-color: transparent; /*Invisible background*/
     outline: none; /*No visible outline when clicking*/
   }
+  /*Styling of the placeholder*/
+  #search::placeholder {
+    color: #919191;
+    font-size: inherit; /*It inherits the font-size from the parent (#search) */
+  }
+
+  /*Defines the styling of the filter for legendary Pokémon*/
 #filter {
   padding: 10px;
   font-size: 1rem;
