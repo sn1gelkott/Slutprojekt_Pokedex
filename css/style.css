@@ -331,9 +331,8 @@ body {
 
 /*When you hover over the options they change colour*/
 .dropdown-content a:hover {
-  background: #ffcb05;
-  transition-duration: 0.2s;
-  overflow: hidden;
+  background: #aaaaaa; /*color it changes to*/
+  transition-duration: 0.2s; /*Duration of animation*/
 }
 
 /* Defines the Pokédex grid*/
