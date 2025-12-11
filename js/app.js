@@ -94,10 +94,10 @@ function applyFilters() {
   // Legendary filter
   if (filterSelect.value === "legendary") {
     filtered = filtered.filter(p => legendaryPokemon.has(p.id));
-  }
+  } //Boolean: if the HTML-element option "legendary" is selected then it will filter for Pokémon that have been labeled "legendary".
 
   displayPokemon(filtered);
-}
+} //This function is the same as before but instead displays the resulting "filtered" Pokémon for both instances (legendary or search term)
 
 /* --- Event Listeners --- */
 searchInput.addEventListener("input", applyFilters);
