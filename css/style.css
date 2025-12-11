@@ -261,12 +261,11 @@ body {
 
 h1 {
   font-family: "Courier New";
-  margin: auto;  position: relative;
-  align-content: center;
-  border-radius: 10%;
+  margin: auto; margin-bottom: 20px; position: relative;
+  border-radius: 20%;
   width: fit-content; height: fit-content;
   padding: 10px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
   background-color: #618f4e;
 }
 
@@ -370,7 +369,7 @@ h1 {
 
 
 
-/* Defines the colours of the type-chips */
+/* Defines the colours of the different type-chips, turning them into subcategories */
 .type-fire { background: #f08030; }
 .type-water { background: #6890f0; }
 .type-grass { background: #78c850; }
