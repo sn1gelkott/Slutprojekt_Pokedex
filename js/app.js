@@ -28,7 +28,7 @@ async function loadLegendaryList() {
   for (let species of data.results) {
     const speciesData = await fetch(species.url).then(r => r.json());
     if (speciesData.is_legendary) { // If-conditions for if the boolean "is_legendary" = true
-      legendaryPokemon.add(speciesData.id); //If the conditions are met then the Pokémon is categorized as "legendary"
+      legendaryPokemon.add(speciesData.id); //If the conditions are met then the Pokémon is categorized as "legendary" and added to "legendaryPokemon"
     }
   }
 }
@@ -58,7 +58,7 @@ async function loadPokemonRange(start, end) {
 
 /* Function for displaying Pokémon cards */
 function displayPokemon(list) { //This function takes the fetched data and creates a visible html-component
-  pokedexContainer.innerHTML = ""; //This "empties" the container, preventing already loaded Pokémon from being displayed upon using different filters
+  pokedexContainer.innerHTML = ""; //This "empties" the existing container, preventing already loaded Pokémon from being displayed upon using different filters
 
   list.forEach(pokemon => { //Loop that performs this action for every element (Pokémon) on the list
     const card = document.createElement("div");
@@ -85,7 +85,8 @@ function applyFilters() {
 
   // Search filter using string-terms
   const term = searchInput.value.toLowerCase().trim();
-  /* Defines the term as an input and changes it to lowercase. This is to match it with the data from the endpoint as it is written in lowercase.
+  /* Defines the term as an input and changes it to lowercase.
+  This is to match it with the data from the endpoint as it is written in lowercase (it "translates" it for the API).
   The trim function also gets rid of whitespaces, making it possible to get a search-result even with spaces in the search query. */
   if (term) {
     filtered = filtered.filter(p => p.name.toLowerCase().includes(term));
@@ -109,10 +110,10 @@ document.querySelectorAll(".dropdown-content a").forEach(btn => { //For each of 
   btn.addEventListener("click", (event) => { // When each button is clicked
     event.preventDefault(); // Prevents the page from scrolling to the top when selecting an option
 
-    const gen = btn.dataset.gen; //The variable gen references each "data-gen" in the HTML for each button
+    const gen = btn.dataset.gen; //The variable "gen" references each "data-gen" in the HTML for each button
     const [start, end] = GEN_RANGES[gen]; //The ranges for "gen" are arrays taken from the predefined GEN_RANGES
 
-    loadPokemonRange(start, end); //This calls on the function on 37
+    loadPokemonRange(start, end); //This calls on the function on row 37
   });
 });
 
