@@ -247,7 +247,7 @@ textarea {
 
 body {
   font-family: Arial, sans-serif;
-  background-color:
+  background: white;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -394,7 +394,7 @@ body {
 /* Styling of the Pokémon card and the duration of the hover-animation */
 .pokemon-card {
   display: block;
-  background: white;
+  background: linear-gradient(#ffffff 90%, #dfdfdf);
   padding: 15px;
   border-radius: 12px;
   border: 2px solid #ccc;
