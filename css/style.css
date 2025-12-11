@@ -351,13 +351,13 @@ h1 {
   width: 120px; /*Set in pixels to maintain a consistent card-size*/
 }
 
-/* Defines the placement of the type chips in the cards*/
+/* Defines the placement of the type chips in the cards */
 .types {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-/* Defines the styling of the type chips themselves*/
+/* Defines the styling of the type chips themselves */
 .type {
   display: inline-block;
   padding: 3px 8px;

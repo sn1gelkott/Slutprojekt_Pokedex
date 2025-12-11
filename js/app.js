@@ -2,7 +2,7 @@ const pokedexContainer = document.getElementById("pokedex");
 const filterSelect = document.getElementById("filter");
 const searchInput = document.getElementById("search"); // All of these define a js variable that reference HTML-elements
 
-let allPokemon = [];        // Pokémon loaded for the current generation(s); in this case first-gen Pokémon are loaded first
+let allPokemon = [];        // Currently loaded Pokémon, in this case first-gen Pokémon are loaded first upon running
 let legendaryPokemon = new Set();
 let fullyLoadedPokemon = {}; // Cache to avoid re-fetching Pokémon
 
@@ -20,35 +20,34 @@ const GEN_RANGES = {
 // This is also accurate to the number in the actual Pokédex in the games.
 
 
-/* Load legendary list; lists pokémon under the category "legendary"*/
+/* Load legendary list; lists Pokémon under the category "legendary"*/
 async function loadLegendaryList() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=2000"); //This endpoint is used to fetch data about all Pokémon
   const data = await response.json(); //async function to keep functions from running simultaneously
 
   for (let species of data.results) {
     const speciesData = await fetch(species.url).then(r => r.json());
-    if (speciesData.is_legendary) { //If-conditions for if the boolean "is_legendary" = true
+    if (speciesData.is_legendary) { // If-conditions for if the boolean "is_legendary" = true
       legendaryPokemon.add(speciesData.id); //If the conditions are met then the Pokémon is categorized as "legendary"
     }
   }
 }
 
-/* Load Pokémon for a given range, the ranges are defined in "GEN_RANGE" (cached to prevent unnecessary network calls) */
+/* Load Pokémon for a given range, the ranges are defined in "GEN_RANGE" (cached to prevent unnecessary fetching) */
 async function loadPokemonRange(start, end) {
-  const requests = [];
+  const requests = []; //Defines the requests as a variable for any array
 
-  for (let i = start; i <= end; i++) {
+  for (let i = start; i <= end; i++) { //For-loop for loading Pokémon
     if (fullyLoadedPokemon[i]) {
-      // already loaded, reuse from cache
-      requests.push(fullyLoadedPokemon[i]);
+      requests.push(fullyLoadedPokemon[i]); //If there are already loaded Pokémon in the cache then it will simply use that and stop here
     } else {
       const p = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-        .then(res => res.json())
+        .then(res => res.json()) //If the Pokémon in the requested range have not been loaded then they will be fetched from the API
         .then(data => {
-          fullyLoadedPokemon[i] = data; // cache it
+          fullyLoadedPokemon[i] = data; // To prevent this loop from running every time it also caches these new loaded Pokémon.
           return data;
         });
-      requests.push(p);
+      requests.push(p); // The requested Pokémon are loaded
     }
   }
 
@@ -104,7 +103,7 @@ searchInput.addEventListener("input", applyFilters); // When a search term is wr
 filterSelect.addEventListener("change", applyFilters); // When an option is changes in the filter (legendary or all Pokémon), the filter is applied accordingly
 
 
-/* --- Generation dropdown clicks --- */
+/* Defines the behaviour of the dropdown-menu */
 document.querySelectorAll(".dropdown-content a").forEach(btn => {
   btn.addEventListener("click", (event) => {
     event.preventDefault(); // prevent scrolling to top
