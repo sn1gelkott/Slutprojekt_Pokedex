@@ -259,6 +259,7 @@ body {
   display: block;
   }
 
+/*Created a header to be able to change the bg-colour */
 #header {
   display: block;
   border-radius: 8px;
@@ -266,19 +267,22 @@ body {
   background-color: #222;
 }
 
+/*Made a container within the header for the text*/
 .header-container {
   display: flex; /*Makes the item within the box responsive*/
   justify-content: center; /*Aligns item in the center*/
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
+/*Styling of the text block*/
 #header-textblock{
-  font-family: "Helvetica"; font-size: x-large; color: white;
+  font-family: "Helvetica"; font-size: xx-large; color: white;
  height: fit-content;
  padding-left: 5px; padding-right: 5px;
 
 }
 
+/*Container for the controls; search, filter, etc*/
 .controls {
   display: flex; /*Makes the items within the box responsive*/
   justify-content: center; /*Aligns the items in the center*/
@@ -287,24 +291,35 @@ body {
   margin-bottom: 20px;
 }
 
+/*Container for each element in the search bar*/
 .search-container {
   display: flex;
-  gap: 4px;
+  padding-left: 5px;
+  gap: 1px;
   width: 30%;
+  background-color: white;
+  border-radius: 25px;
 }
+
+/*Container to align the pokéball-icon*/
 .pokeball-container {
   display: flex;
   align-items: center;
 }
-  #pokeball-icon {
+
+/*The image itself*/
+#pokeball-icon {
     block-size: 40px;
   }
 
+/*Defined styling for the input*/
   #search {
-    border-radius: 8px;
     padding: 16px;
     width: 95%;
-}
+    border: none; /*Invisible border*/
+    background-color: transparent; /*Invisible background*/
+    outline: none; /*No visible outline when clicking*/
+  }
 #filter {
   padding: 10px;
   font-size: 1rem;
