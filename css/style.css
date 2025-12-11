@@ -259,19 +259,25 @@ body {
   display: block;
 }
 
-h1 {
-  font-family: "Courier New";
-  margin: auto; margin-bottom: 20px; position: relative;
+.header-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+#header-text{
+  font-family: "Courier New"; font-size: 1.5em;
+  margin: auto;
   border-radius: 20%;
   width: fit-content; height: fit-content;
   padding: 10px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6);
   background-color: #618f4e;
 }
 
 .controls {
-  display: flex;
-  justify-content: center;
+  display: flex; /*Makes the items within the box responsive*/
+  justify-content: center; /*Aligns the items in the center*/
   gap: 15px;
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -286,7 +292,7 @@ h1 {
 /* Styling of the dropdown menu */
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-block; /*Inline-block so the blocks don't end up bigger than necessary*/
 }
 
 /*Styling for the "Generations"-dropdown menu*/
@@ -294,22 +300,23 @@ h1 {
   padding: 10px 15px;
   border-radius: 8px;
   background: #ffcb05;
-  cursor: pointer;
+  cursor: pointer; /*Changes the look of the cursor to indicate that the button is clickable*/
   border: 2px solid #3b4cca;
   font-weight: bold;
 }
 
+/*The styling of the dropdown-menu*/
 .dropdown-content {
   display: none;
   position: absolute;
   background: #fff;
   min-width: 180px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-  z-index: 1;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2); /*The offset of the box-shadow as well as the colour where the alpha is 0.2 */
+  z-index: 1; /* Defines the stack-order so the contents of the menu are visible in front of everything else */
   border-radius: 8px;
 }
 
-/*Defines the styling of the drop-down content for the generations*/
+/*Defines the styling of the of the content within the dropdown-options for the generations*/
 .dropdown-content a {
   display: block;
   padding: 10px;
