@@ -247,7 +247,7 @@ textarea {
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(#cc0000, #ffffff);
+  background-color:
   margin: 0;
   padding: 0;
   text-align: center;
@@ -257,6 +257,13 @@ body {
   width: 50%;
   margin: 20px auto;
   display: block;
+}
+
+#header {
+  display: block;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #222;
 }
 
 .header-container {
