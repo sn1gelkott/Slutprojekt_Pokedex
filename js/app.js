@@ -23,7 +23,7 @@ const GEN_RANGES = {
 /* --- Load legendary list; lists pokémon under the category "legendary"--- */
 async function loadLegendaryList() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=2000");
-  const data = await response.json();
+  const data = await response.json(); //async function to keep functions from running simultaneously
 
   for (let species of data.results) {
     const speciesData = await fetch(species.url).then(r => r.json());
@@ -72,9 +72,10 @@ function displayPokemon(list) {
       <h3>#${pokemon.id} ${pokemon.name.toUpperCase()}</h3>
       <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
       <div class="types">${types}</div>
-    `;
+    `; /* This defines the different attributes fetched from the API which will then be applied to the 'empty' HTML-elements.
+    In this case the ID, the name and the Pokémon type.*/
 
-    pokedexContainer.appendChild(card);
+    pokedexContainer.appendChild(card); //This applies all the fetched data to the 'empty' cards.
   });
 }
 
