@@ -291,10 +291,14 @@ body {
   display: flex;
   gap: 4px;
 }
+.pokeball-container {
+  display: flex;
+  align-items: center;
+}
   #pokeball-icon {
-   display: block;
     block-size: 40px;
   }
+
   #search {
   display: block;
     border-radius: 8px;
@@ -311,6 +315,7 @@ body {
 /* Styling of the dropdown menu */
 .dropdown {
   position: relative;
+  height: auto;
   display: inline-block; /*Inline-block so the blocks don't end up bigger than necessary*/
 }
 
@@ -351,7 +356,7 @@ body {
 
 /*When you hover over the options they change colour*/
 .dropdown-content a:hover {
-  background: #aaaaaa; /*color it changes to*/
+  background: #d1d1d1; /*color it changes to*/
   transition-duration: 0.2s; /*Duration of animation*/
 }
 
@@ -367,9 +372,11 @@ body {
 
 /* Styling of the Pokémon card and the duration of the hover-animation */
 .pokemon-card {
+  display: block;
   background: white;
   padding: 15px;
   border-radius: 12px;
+  border: 2px solid #ccc;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   transition: transform 0.3s; /* duration of hover-animation */
 }

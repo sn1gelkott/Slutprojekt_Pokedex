@@ -25,9 +25,11 @@
 
   <!-- Search Bar -->
   <div class="search-container">
-    <a>
-      <img id="pokeball-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Poké_Ball_icon.svg/2052px-Poké_Ball_icon.svg.png" alt="Pokéball_icon">
-    </a>
+    <div class="pokeball-container">
+      <a>
+        <img id="pokeball-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Poké_Ball_icon.svg/2052px-Poké_Ball_icon.svg.png" alt="Pokéball_icon">
+      </a>
+    </div>
     <input type="text" id="search" placeholder="Search Pokémon by name..." />
   </div>
 
@@ -40,7 +42,7 @@
 
   <!-- Generation dropdown-menu -->
   <div class="dropdown">
-    <button class="dropbtn">Generations</button>
+    <button class="dropbtn">Sort by</button>
     <div class="dropdown-content">
       <a href="#" data-gen="all">All (1-493)</a> <!--Buttons for each generation or all with each button acting as a link -->
       <a href="#" data-gen="1">Gen I (1-151)</a>
