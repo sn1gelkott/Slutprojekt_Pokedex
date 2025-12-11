@@ -20,7 +20,7 @@ const GEN_RANGES = {
 // This is also accurate to the number in the actual Pokédex in the games.
 
 
-/* Load legendary list; lists Pokémon under the category "legendary"*/
+/* Load legendary list; lists Pokémon under the category "legendary" */
 async function loadLegendaryList() {
   const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=2000"); //This endpoint is used to fetch data about all Pokémon
   const data = await response.json(); //async function to keep functions from running simultaneously
@@ -33,33 +33,34 @@ async function loadLegendaryList() {
   }
 }
 
-/* Load Pokémon for a given range, the ranges are defined in "GEN_RANGE" (cached to prevent unnecessary fetching) */
+/* Load Pokémon for a given range (cached to prevent unnecessary fetching) */
 async function loadPokemonRange(start, end) {
-  const requests = []; //Defines the requests as a variable for any array
+  const requests = []; //Defines the requested data as a variable for any given range; for example the defined generations in "GEN_RANGE"
 
   for (let i = start; i <= end; i++) { //For-loop for loading Pokémon
     if (fullyLoadedPokemon[i]) {
       requests.push(fullyLoadedPokemon[i]); //If there are already loaded Pokémon in the cache then it will simply use that and stop here
     } else {
-      const p = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+      const p = fetch(`https://pokeapi.co/api/v2/pokemon/${i}`) //The variable p is new data that has to be fetched from the API
         .then(res => res.json()) //If the Pokémon in the requested range have not been loaded then they will be fetched from the API
         .then(data => {
           fullyLoadedPokemon[i] = data; // To prevent this loop from running every time it also caches these new loaded Pokémon.
           return data;
         });
-      requests.push(p); // The requested Pokémon are loaded
+      requests.push(p); // The new fetched Pokémon pushed instead or in addition to the previously loaded Pokémon depending on the requested range.
     }
   }
 
   allPokemon = await Promise.all(requests);
-  applyFilters();
+  /* The new data included in "allPokemon" is not redefined until the function above is completed */
+  applyFilters(); // Calls on the function of applying filters; this has been defined in row 83
 }
 
-/* Display Pokémon Cards */
-function displayPokemon(list) {
-  pokedexContainer.innerHTML = ""; //This function adds the fetched data create visible html-component
+/* Function for displaying Pokémon cards */
+function displayPokemon(list) { //This function takes the fetched data and creates a visible html-component
+  pokedexContainer.innerHTML = ""; 
 
-  list.forEach(pokemon => {
+  list.forEach(pokemon => { //Loop that performs this action for every element (Pokémon) on the list
     const card = document.createElement("div");
     card.classList.add("pokemon-card"); //A div-element is created and named "pokemon-card"
 
