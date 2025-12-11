@@ -20,15 +20,15 @@ const GEN_RANGES = {
 // This is also accurate to the number in the actual Pokédex in the games.
 
 
-/* --- Load legendary list; lists pokémon under the category "legendary"--- */
+/* Load legendary list; lists pokémon under the category "legendary"*/
 async function loadLegendaryList() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=2000");
+  const response = await fetch("https://pokeapi.co/api/v2/pokemon-species?limit=2000"); //This endpoint is used to fetch data about all Pokémon
   const data = await response.json(); //async function to keep functions from running simultaneously
 
   for (let species of data.results) {
     const speciesData = await fetch(species.url).then(r => r.json());
-    if (speciesData.is_legendary) {
-      legendaryPokemon.add(speciesData.id);
+    if (speciesData.is_legendary) { //If-conditions for if the boolean "is_legendary" = true
+      legendaryPokemon.add(speciesData.id); //If the conditions are met then the Pokémon is categorized as "legendary"
     }
   }
 }
