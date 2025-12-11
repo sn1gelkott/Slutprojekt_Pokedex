@@ -1,4 +1,4 @@
-# Slutprojekt_Pokedex
+# Slutprojekt
 
 Alla kommentarer har gjorts på engelska för att underlätta och slippa få upp "typos" som felmeddelanden.
 
